@@ -3,13 +3,16 @@ require 'string_not_empty'
 
 describe Calculator,"Implicit Subject"  do # implicit because describe using class name
 
-        it 'positives' do
+    
+    it 'positives' do
 
-            result = subject.sum(1,1)
-            expect(result).to eq(2) 
+        result = subject.sum(1,1)
+        expect(result).to eq(2) 
+        
+    end
 
-        end
 end
+
 
 describe "Explicit Subject changing var name" do # implicit because describe using class name
 
@@ -39,6 +42,17 @@ describe Calculator,"Explicit Subject w/ Helper" do # implicit because describe 
 end
 
 
+describe (1..5),'One-linear Syntax explicit subject' do
+    it {expect(subject).to cover(1)}
+    it {expect(subject).not_to cover(0)}
+end
+
+
+describe (1..5),'One-linear Syntax implicit subject' do
+    it {is_expected.to cover(4)}
+    it {is_expected.to cover(2,5)}
+end
+
 describe String,"Testing sub-describe" do
     
     describe StringNotEmpty,"Sub-describe" do
@@ -66,4 +80,8 @@ describe String,"Testing sub-describe" do
         end
         
     end
+
 end
+
+
+

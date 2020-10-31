@@ -38,6 +38,14 @@ describe "Match Range" do
             
         end
 
+        it 'Cover ranger' do 
+
+            expect((1..6)).to cover(5)
+            expect((1..6)).to cover(1,6)
+            expect((1..6)).not_to cover(7)
+
+        end
+
     end
 
 end
