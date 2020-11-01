@@ -1,4 +1,4 @@
-class Pessoa
+class Person
     attr_accessor :name, :age
 
     def YearBirth()

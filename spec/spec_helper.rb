@@ -15,6 +15,26 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
 
+  #Hook > Before suite
+  config.before(:suite) do
+    puts ">>>>>>> Executed before test suite"
+  end
+  
+  #Hook > after suite
+  config.after(:suite) do
+    puts ">>>>>>> Executed after test suite"
+  end
+
+  #Hook > Before Context 
+  config.before(:context) do
+    puts ">>>>>>> Executed before test context"
+  end
+  
+  #Hook > after all
+  config.after(:all) do
+    puts ">>>>>>> Executed after all tests"
+  end
+
   #Helper Methods of module 
   require_relative 'helpers/composition'
   config.include Helper
