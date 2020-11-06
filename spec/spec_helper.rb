@@ -15,6 +15,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
 
+=begin  
   #Hook > Before suite
   config.before(:suite) do
     puts ">>>>>>> Executed before test suite"
@@ -34,6 +35,13 @@ RSpec.configure do |config|
   config.after(:all) do
     puts ">>>>>>> Executed after all tests"
   end
+
+  #global aggregate failures
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true
+  end
+  
+=end
 
   #Helper Methods of module 
   require_relative 'helpers/composition'
